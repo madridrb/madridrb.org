@@ -47,6 +47,11 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
+
+group :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'capybara'
 end
