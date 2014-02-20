@@ -8,6 +8,7 @@ class Meeting < CouchRest::Model::Base
   timestamps!
 
   design do
+    view :by_starts_at
     view :by_slug
   end
 
