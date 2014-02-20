@@ -25,6 +25,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Rails I18n translations
+gem 'rails-i18n'
+
 # HTML Abstraction Markup Language
 gem 'haml-rails'
 
