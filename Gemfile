@@ -25,9 +25,11 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# HTML Abstraction Markup Language
 gem 'haml-rails'
 
-gem 'couchrest_model'
+# Extend CouchRest Document class with useful features
+gem 'couchrest_model', github: 'samlown/couchrest_model'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
