@@ -59,4 +59,6 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'capybara'
+  gem 'launchy'
+  gem 'rack_session_access'
 end

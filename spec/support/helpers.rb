@@ -1,5 +1,9 @@
 module Helpers
 
+  def login_as(user)
+    page.set_rack_session(user_id: user.id)
+  end
+
   def should_see(text)
     expect(page).to have_content text
   end
