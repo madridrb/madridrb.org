@@ -6,5 +6,6 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraphs.join("\n\n") }
     starts_at { rand(10).days.from_now }
     venue { Faker::Address.street_address }
+    author { build :author }
   end
 end
