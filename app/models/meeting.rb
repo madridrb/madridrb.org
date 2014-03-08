@@ -4,6 +4,8 @@ class Meeting < CouchRest::Model::Base
   property :description, String
   property :starts_at,   DateTime
   property :venue,       String
+  property :author,      Author
+  property :video_url,   String
 
   timestamps!
 
