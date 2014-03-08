@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'Meetings' do
 
   background do
+    recreate! :meeting
     create :meeting, title: "First Madrid.rb meeting"
   end
 
