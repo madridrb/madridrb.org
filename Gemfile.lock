@@ -37,6 +37,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.14)
+    bcrypt-ruby (3.1.2)
     builder (3.1.4)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -168,6 +169,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.1.2)
   capybara
   coffee-rails (~> 4.0.0)
   couchrest_model!
