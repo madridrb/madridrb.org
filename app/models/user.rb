@@ -10,6 +10,7 @@ class User < CouchRest::Model::Base
   has_secure_password
 
   design do
+    view :by_email
     view :by_slug
   end
 
