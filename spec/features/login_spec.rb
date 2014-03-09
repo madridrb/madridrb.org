@@ -25,7 +25,7 @@ feature 'Login' do
     should_see 'Invalid email or password'
   end
 
-  scenario 'A logged-in user logot' do
+  scenario 'A logged-in user logout' do
     login_as @user
 
     visit '/'
