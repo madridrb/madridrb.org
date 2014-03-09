@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
 
 # Use SCSS for stylesheets
@@ -62,4 +62,5 @@ group :test do
   gem 'capybara-email'
   gem 'launchy'
   gem 'rack_session_access'
+  gem 'spork'
 end
