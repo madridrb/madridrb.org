@@ -1,1 +1,15 @@
 %h1 Reset Password
+
+- if @user.errors.any?
+  .errors
+    - @user.errors.full_messages.each do |msg|
+      = msg
+
+= form_for @user, url: reset_password_path(@user.confirmation_token) do |f|
+  = f.label :password
+  = f.password_field :password
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
+
+  = f.submit 'Update'

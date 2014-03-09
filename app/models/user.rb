@@ -13,6 +13,7 @@ class User < CouchRest::Model::Base
   design do
     view :by_email
     view :by_slug
+    view :by_confirmation_token
   end
 
   before_create :set_slug

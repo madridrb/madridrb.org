@@ -6,9 +6,7 @@ feature 'Reset password' do
     recreate! :user
     clear_emails
     @user = create :user, email: 'user@sample.com', password: 'Fake1234'
-  end
 
-  scenario 'A non-logged-in user request reset a password' do
     visit '/session/new'
     click_link 'Forgot your password?'
     fill_in :email, with: 'user@sample.com'
@@ -16,9 +14,20 @@ feature 'Reset password' do
 
     open_email 'user@sample.com'
     current_email.click_link 'Reset password'
-    fill_in :password, with: 'NewPassword'
-    fill_in :password_confirmation, with: 'NewPassword'
+  end
+
+  scenario 'Enter password correctly' do
+    fill_in 'Password', with: 'NewPassword'
+    fill_in 'Password confirmation', with: 'NewPassword'
     click_button 'Update'
+    should_see "You're now logged"
+  end
+
+  scenario 'Enter wrong password' do
+    fill_in 'Password', with: 'NewPassword'
+    fill_in 'Password confirmation', with: 'WrongPassword'
+    click_button 'Update'
+    should_see "Reset Password"
   end
 
 end
