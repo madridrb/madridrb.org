@@ -10,7 +10,6 @@ class Meeting < CouchRest::Model::Base
 
   design do
     view :by_starts_at
-    view :by_slug
   end
 
   before_create :set_id
