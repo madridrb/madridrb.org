@@ -1,12 +1,11 @@
 class Meeting < CouchRest::Model::Base
   property :title,       String
-  property :slug,        String
   property :description, String
   property :starts_at,   DateTime
   property :venue,       String
   property :author,      Author
   property :video_url,   String
-
+  property :comments,    Comment, array: true
   timestamps!
 
   design do
@@ -14,15 +13,16 @@ class Meeting < CouchRest::Model::Base
     view :by_slug
   end
 
-  before_create :set_slug
+  before_create :set_id
 
-  def to_param
-    slug
+  def add_comment(attrs)
+    comments << attrs
+    save
   end
 
   private
 
-  def set_slug
-    self.slug = title.parameterize
+  def set_id
+    self.id = title.parameterize
   end
 end

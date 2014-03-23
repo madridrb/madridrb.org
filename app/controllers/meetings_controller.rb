@@ -5,7 +5,7 @@ class MeetingsController < ApplicationController
   end
 
   def show
-    @meeting = Meeting.find_by_slug!(params[:id])
+    @meeting = Meeting.find(params[:id])
   end
 
 end

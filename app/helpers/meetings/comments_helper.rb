@@ -1,0 +1,2 @@
+module Meetings::CommentsHelper
+end
