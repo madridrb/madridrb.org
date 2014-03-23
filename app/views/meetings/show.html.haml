@@ -1,3 +1,4 @@
 %h1= link_to @meeting.title, @meeting
 = render partial: 'comments/comment', collection: @meeting.comments
-= render 'meetings/comments/form', meeting: @meeting, comment: @comment
+- if policy(@comment).create?
+  = render 'meetings/comments/form', meeting: @meeting, comment: @comment

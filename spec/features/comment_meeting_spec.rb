@@ -10,7 +10,6 @@ feature 'Comment a meeting' do
   end
 
   context 'Logged user' do
-
     background do
       login_as @user
 
@@ -29,6 +28,14 @@ feature 'Comment a meeting' do
     scenario 'Logged user send blank comment' do
       click_button 'Create'
       should_see 'Comments no es válido'
+    end
+  end
+
+  context 'Non-logged-in user' do
+    scenario "Can't create new comments" do
+      visit '/'
+      click_link 'First Madrid.rb meeting'
+      should_not_see 'Comment'
     end
   end
 end
