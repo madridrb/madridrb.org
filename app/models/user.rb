@@ -2,7 +2,6 @@ class User < CouchRest::Model::Base
   include ActiveModel::SecurePassword
 
   property :name,               String
-  property :slug,               String
   property :email,              String
   property :twitter,            String
   property :password_digest,    String
@@ -12,30 +11,40 @@ class User < CouchRest::Model::Base
 
   design do
     view :by_email
-    view :by_slug
     view :by_confirmation_token
   end
 
   validates :name, :email, presence: true
 
-  before_create :set_slug
-
-  def to_param
-    slug
-  end
+  before_create :set_id
 
   def forgot_password!
     generate_confirmation_token
     save
   end
 
+  def update_password(attrs)
+    self.password = attrs[:password]
+    self.password_confirmation = attrs[:password_confirmation]
+    if valid?
+      self.confirmation_token = nil
+      true
+    else
+      false
+    end
+  end
+
   private
 
-  def set_slug
-    self.slug = name.parameterize
+  def set_id
+    self.id = name.parameterize
   end
 
   def generate_confirmation_token
-    self.confirmation_token = SecureRandom.hex(20).encode('UTF-8')
+    self.confirmation_token = secure_token
+  end
+
+  def secure_token
+    SecureRandom.hex(20).encode('UTF-8')
   end
 end

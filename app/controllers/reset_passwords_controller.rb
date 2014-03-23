@@ -22,7 +22,7 @@ class ResetPasswordsController < ApplicationController
   def update
     @user = User.find_by_confirmation_token!(params[:id])
 
-    if @user.update_attributes(reset_password_params)
+    if @user.update_password(password_params)
       login @user
       redirect_to root_url, notice: "You're now logged"
     else
@@ -36,7 +36,7 @@ class ResetPasswordsController < ApplicationController
     UserMailer.reset_password(user).deliver
   end
 
-  def reset_password_params
+  def password_params
     params.require(:user).permit(:password, :password_confirmation)
   end
 
