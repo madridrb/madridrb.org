@@ -6,6 +6,7 @@ class MeetingsController < ApplicationController
 
   def show
     @meeting = Meeting.find(params[:id])
+    @comment = Comment.new
   end
 
 end

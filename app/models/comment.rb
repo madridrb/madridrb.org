@@ -5,4 +5,6 @@ class Comment
   property :user_name
   property :body
   timestamps!
+
+  validates_presence_of :user_name, :body
 end

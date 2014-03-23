@@ -6,6 +6,7 @@ class Meetings::CommentsController < ApplicationController
     if @meeting.add_comment(comment_params)
       redirect_to @meeting
     else
+      @comment = Comment.new
       render 'meetings/show'
     end
   end

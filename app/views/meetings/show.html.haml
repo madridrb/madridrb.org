@@ -1,9 +1,3 @@
 %h1= link_to @meeting.title, @meeting
-= render @meeting.comments
-
-= form_for Comment.new, url: meeting_comments_path(@meeting) do |f|
-  = f.label :body, 'Comment'
-  %br
-  = f.text_area :body
-  %br
-  = f.submit 'Create'
+= render partial: 'comments/comment', collection: @meeting.comments
+= render 'meetings/comments/form', meeting: @meeting, comment: @comment

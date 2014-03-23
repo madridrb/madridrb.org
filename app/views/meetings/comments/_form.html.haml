@@ -1,0 +1,10 @@
+- if meeting.errors.any?
+  - meeting.errors.full_messages.each do |msg|
+    = msg
+
+= form_for comment, url: meeting_comments_path(meeting) do |f|
+  = f.label :body, 'Comment'
+  %br
+  = f.text_area :body
+  %br
+  = f.submit 'Create'
