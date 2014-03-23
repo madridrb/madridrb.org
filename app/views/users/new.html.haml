@@ -1,5 +1,9 @@
 %h1 Sign up
 
+- if @user.errors.any?
+  - @user.errors.full_messages.each do |msg|
+    %p= msg
+
 = form_for @user do |f|
   = f.label :name
   = f.text_field :name

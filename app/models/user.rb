@@ -16,6 +16,8 @@ class User < CouchRest::Model::Base
     view :by_confirmation_token
   end
 
+  validates :name, :email, presence: true
+
   before_create :set_slug
 
   def to_param

@@ -20,4 +20,15 @@ feature 'Sign up' do
     should_see 'Logout'
   end
 
+  scenario 'Validation error' do
+    visit '/'
+    click_link 'Sign up'
+
+    fill_in 'Name', with: 'Paco Pérez'
+    fill_in 'Email', with: 'user@sample.com'
+    click_button 'Sign up'
+
+    should_see 'Password no puede estar en blanco'
+  end
+
 end
