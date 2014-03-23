@@ -4,8 +4,12 @@
   %nav
     - unless user_signed_in?
       %p
-        = link_to 'Login', new_session_path
         = link_to 'Sign up', new_user_path
+        |
+        = link_to 'Login', new_session_path
 
     - if user_signed_in?
-      = link_to 'Logout', session_path, method: :delete
+      %p
+        = link_to current_user.name, current_user
+        |
+        = link_to 'Logout', session_path, method: :delete
