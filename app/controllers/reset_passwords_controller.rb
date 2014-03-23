@@ -23,7 +23,7 @@ class ResetPasswordsController < ApplicationController
     @user = User.find_by_confirmation_token!(params[:id])
 
     if @user.update_attributes(reset_password_params)
-      session[:user_id] = @user.id
+      login @user
       redirect_to root_url, notice: "You're now logged"
     else
       render :edit
