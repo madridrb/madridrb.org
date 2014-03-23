@@ -1,0 +1,4 @@
+- if flash.any?
+  .flash_messages
+    - flash.each do |key, msg|
+      %p{class: key}= msg

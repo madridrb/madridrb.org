@@ -1,7 +1,11 @@
-- unless user_signed_in?
-  %p
-    = link_to 'Login', new_session_path
-    = link_to 'Sign up', new_user_path
+%header
+  %p.logo= link_to 'Madrid.rb', root_url
 
-- if user_signed_in?
-  = link_to 'Logout', session_path, method: :delete
+  %nav
+    - unless user_signed_in?
+      %p
+        = link_to 'Login', new_session_path
+        = link_to 'Sign up', new_user_path
+
+    - if user_signed_in?
+      = link_to 'Logout', session_path, method: :delete
