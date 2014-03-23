@@ -1,4 +1,12 @@
 %h1= link_to @meeting.title, @meeting
+%p= @meeting.author.name
+%p= simple_format @meeting.description
+%p= l @meeting.starts_at
+%p= @meeting.venue
+%p= @meeting.video_url
+
+= render partial: 'attendee', collection: @meeting.attendees
 = render partial: 'comments/comment', collection: @meeting.comments
+
 - if policy(@comment).create?
   = render 'meetings/comments/form', meeting: @meeting, comment: @comment

@@ -1,0 +1,5 @@
+%li
+  - if attendee.twitter
+    = link_to attendee.name, attendee.twitter
+  - else
+    = attendee.name

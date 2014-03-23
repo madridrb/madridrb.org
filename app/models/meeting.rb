@@ -6,6 +6,8 @@ class Meeting < CouchRest::Model::Base
   property :author,      Author
   property :video_url,   String
   property :comments,    Comment, array: true
+
+  collection_of :attendees, class_name: 'User'
   timestamps!
 
   design do
@@ -15,7 +17,12 @@ class Meeting < CouchRest::Model::Base
   before_create :set_id
 
   def add_comment(attrs)
-    comments << attrs
+    self.comments << attrs
+    save
+  end
+
+  def add_attendee(user)
+    self.attendees << user
     save
   end
 
