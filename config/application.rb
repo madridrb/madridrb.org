@@ -25,6 +25,9 @@ module Madridrb
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
 
+    # Action Mailer
+    config.action_mailer.default_url_options = { host: 'localhost', port: '3000' }
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
