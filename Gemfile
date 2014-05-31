@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.1'
 
 
 # Use SCSS for stylesheets
@@ -45,21 +45,24 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # Use unicorn as the app server
 gem 'puma'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+# Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
 
+group :development do
+  # Use Capistrano for deployment
+  # gem 'capistrano', group: :development
+
+  gem 'quiet_assets'
+end
+
 group :development, :test do
+  # gem 'debugger'
   gem 'factory_girl_rails'
   gem 'ffaker'
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-email'
   gem 'launchy'
