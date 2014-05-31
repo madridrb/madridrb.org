@@ -5,7 +5,7 @@
 %p= @meeting.venue
 %p= @meeting.video_url
 
-= render partial: 'attendee', collection: @meeting.attendees
+= render partial: 'meetings/attendee', collection: @meeting.attendees
 = render partial: 'comments/comment', collection: @meeting.comments
 
 - if policy(@comment).create?
