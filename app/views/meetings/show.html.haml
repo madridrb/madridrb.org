@@ -1,11 +1,30 @@
 %h1= link_to @meeting.title, @meeting
-%p= @meeting.author.name
+%p
+  Date:
+  = l @meeting.starts_at
+
+%h2 Author
+%p= link_to @meeting.author.name, @meeting.author.url
+%p
+  Twitter:
+  = @meeting.author.twitter
+%h3 Bio:
+= simple_format @meeting.author.bio
+
+%h2 Description
 %p= simple_format @meeting.description
-%p= l @meeting.starts_at
-%p= @meeting.venue
+
+%h2 Video
 %p= @meeting.video_url
 
+%h2 Venue
+%p= @meeting.venue
+
+
+%h2 Attendees
 = render partial: 'meetings/attendee', collection: @meeting.attendees
+
+%h2 Comments
 = render partial: 'comments/comment', collection: @meeting.comments
 
 - if policy(@comment).create?
