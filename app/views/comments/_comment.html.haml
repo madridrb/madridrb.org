@@ -1,3 +1,4 @@
 %p
   = "#{comment.user_name}:"
   = comment.body
+%p= link_to 'Delete', meeting_comment_path(meeting, comment_counter), method: :delete

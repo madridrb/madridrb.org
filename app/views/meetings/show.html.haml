@@ -25,7 +25,7 @@
 = render partial: 'meetings/attendee', collection: @meeting.attendees
 
 %h2 Comments
-= render partial: 'comments/comment', collection: @meeting.comments
+= render partial: 'comments/comment', collection: @meeting.comments, locals: { meeting: @meeting }
 
 - if policy(@comment).create?
   = render 'meetings/comments/form', meeting: @meeting, comment: @comment

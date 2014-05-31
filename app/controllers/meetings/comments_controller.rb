@@ -1,7 +1,8 @@
 class Meetings::CommentsController < ApplicationController
 
+  before_action :load_meeting
+
   def create
-    @meeting = Meeting.find(params[:meeting_id])
     @comment = Comment.new
     authorize @comment, :create?
 
@@ -12,7 +13,21 @@ class Meetings::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @meeting.comments.delete_at(params[:id].to_i)
+    if @meeting.save
+      redirect_to @meeting, notice: 'Comment destroyed successfully'
+    else
+      @comment = Comment.new
+      render 'meetings/show'
+    end
+  end
+
   private
+
+  def load_meeting
+    @meeting = Meeting.find(params[:meeting_id])
+  end
 
   def comment_params
     permitted_comment_params.merge(user_name: current_user.name)
