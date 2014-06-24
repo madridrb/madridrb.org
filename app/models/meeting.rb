@@ -1,4 +1,6 @@
 class Meeting < CouchRest::Model::Base
+  paginates_per 10
+
   property :title,       String
   property :description, String
   property :starts_at,   DateTime

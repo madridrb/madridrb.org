@@ -1,7 +1,7 @@
 class MeetingsController < ApplicationController
 
   def index
-    @meetings = Meeting.by_starts_at.descending
+    @meetings = Meeting.by_starts_at.descending.page(params[:page])
   end
 
   def show
