@@ -1,15 +1,33 @@
-%header
-  %p.logo= link_to 'Madrid.rb', root_url
+%header.navigation
+  .menu-wrapper
+    = link_to root_url, class: :logo, title: 'Madrid.rb' do
+      = image_tag 'rubito.png', alt: 'rubito'
+    %p#js-mobile-menu.navigation-menu-button MENU
+    .nav
+      %ul#navigation-menu
+        %li.nav-link
+          = link_to 'Madrid.rb', root_url
+        %li.nav-link
+          = link_to 'Meetings', meetings_path
+        %li.nav-link
+          %a{href: "javascript:void(0)"} About Us
+        %li.nav-link.more
+          %a{href: "javascript:void(0)"} More
+          %ul.submenu
+            %li
+              %a{href: "javascript:void(0)"} Submenu Item
+            %li
+              %a{href: "javascript:void(0)"} Another Item
+    .navigation-tools
+      .search-bar
+        .search-and-submit
+          %input{placeholder: "Enter Search", type: "search"}/
+          %button{type: "submit"}
+            %img{alt: "", src: "https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png"}/
+      - unless user_signed_in?
+        = link_to 'Sign up', new_user_path, class: 'sign-up'
+        = link_to 'Login', new_session_path, class: :login
 
-  %nav
-    - unless user_signed_in?
-      %p
-        = link_to 'Sign up', new_user_path
-        |
-        = link_to 'Login', new_session_path
-
-    - if user_signed_in?
-      %p
-        = link_to current_user.name, current_user
-        |
-        = link_to 'Logout', session_path, method: :delete
+      - if user_signed_in?
+        = link_to 'Logout', session_path, method: :delete, class: :login
+        = link_to current_user.name, current_user, class: :login

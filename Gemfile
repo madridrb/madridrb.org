@@ -49,6 +49,12 @@ gem 'puma'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
 
+# Design
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
 group :development do
   # Use Capistrano for deployment
   # gem 'capistrano', group: :development
