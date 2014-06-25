@@ -1,5 +1,5 @@
 class Meeting < CouchRest::Model::Base
-  paginates_per 10
+  paginates_per 9
 
   property :title,       String
   property :description, String

@@ -1,5 +1,5 @@
-- @meetings.each do |meeting|
-  %h2= link_to meeting.title, meeting
-  %p= l meeting.starts_at
+%section#meetings.cards
+  - @meetings.each do |meeting|
+    = render meeting
 
 = paginate @meetings

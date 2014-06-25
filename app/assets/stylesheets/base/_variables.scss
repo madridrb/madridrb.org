@@ -42,6 +42,9 @@ $error-color: $light-red;
 $notice-color: $light-yellow;
 $success-color: $light-green;
 
+//Body colors
+$base-body-color: white;
+
 // Forms
 $form-border-color: $base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);

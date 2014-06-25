@@ -1,0 +1,19 @@
+%article.card.meeting[meeting]
+  .card-image
+    %img{:alt => "", :src => "https://raw.github.com/Magnus-G/Random/master/mountains.png"}
+  .card-header
+    = link_to meeting.title, meeting
+  .card-copy
+    = simple_format truncate(meeting.description, length: 150)
+    %p= l meeting.starts_at.to_date, format: :long
+  .card-stats
+    %ul
+      %li
+        98
+        %span Items
+      %li
+        298
+        %span Things
+      %li
+        923
+        %span Objects
