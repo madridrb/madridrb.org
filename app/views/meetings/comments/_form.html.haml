@@ -2,9 +2,10 @@
   - meeting.errors.full_messages.each do |msg|
     = msg
 
-= form_for comment, url: meeting_comments_path(meeting) do |f|
-  = f.label :body, 'New comment'
-  %br
-  = f.text_area :body
-  %br
-  = f.submit 'Create'
+%fieldset
+  = form_for comment, url: meeting_comments_path(meeting) do |f|
+    %p
+      = f.label :body, 'New comment'
+      = f.text_area :body
+    %p
+      = f.submit 'Create'

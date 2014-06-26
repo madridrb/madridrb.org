@@ -3,21 +3,25 @@
     = link_to root_url, class: :logo, title: 'Madrid.rb' do
       = image_tag 'rubito.png', alt: 'rubito'
     %p#js-mobile-menu.navigation-menu-button MENU
+
     .nav
       %ul#navigation-menu
         %li.nav-link
-          = link_to 'Madrid.rb', root_url
-        %li.nav-link
           = link_to 'Meetings', meetings_path
         %li.nav-link
-          %a{href: "javascript:void(0)"} About Us
+          %a{href: "javascript:void(0)"} Users
+        %li.nav-link
+          %a{href: "javascript:void(0)"} About
+        %li.nav-link
+          %a{href: "javascript:void(0)"} Contact
         %li.nav-link.more
           %a{href: "javascript:void(0)"} More
           %ul.submenu
             %li
-              %a{href: "javascript:void(0)"} Submenu Item
+              %a{href: "javascript:void(0)"} About
             %li
-              %a{href: "javascript:void(0)"} Another Item
+              %a{href: "javascript:void(0)"} Contact us
+
     .navigation-tools
       .search-bar
         .search-and-submit

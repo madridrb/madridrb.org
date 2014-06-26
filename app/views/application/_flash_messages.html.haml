@@ -1,4 +1,3 @@
-- if flash.any?
-  .flash_messages
-    - flash.each do |key, msg|
-      %p{class: key}= msg
+- flash.each do |key, msg|
+  %div{class: key}
+    %span= msg
