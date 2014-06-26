@@ -1,14 +1,18 @@
 %article.type-system-sans
   %p.type Meeting
+
   %h1= link_to @meeting.title, @meeting
+
+  %p.date= l @meeting.starts_at, format: :long
+
   %h2= simple_format @meeting.description
-  %p.date= l @meeting.starts_at
 
   %p.author
     = link_to @meeting.author.name, @meeting.author.url
     %br
     %span Twitter:
     = @meeting.author.twitter
+
   %h3 Bio
   = simple_format @meeting.author.bio
 
@@ -20,13 +24,20 @@
 
   %hr
 
-  %h3#attendees Attendees
-  = render partial: 'meetings/attendee', collection: @meeting.attendees
+  #attendees
+    %h3 Attendees
+    - if policy(@meeting).attend?
+      = button_to 'Attend', meeting_attendees_path(@meeting), method: :post, class: :button
+    - elsif policy(@meeting).unattend?
+      = button_to 'Unattend', meeting_attendees_path(@meeting), method: :delete, class: :button
+
+    = render partial: 'meetings/attendee', collection: @meeting.attendees
 
   %hr
 
-  %h3#comments Comments
-  = render partial: 'comments/comment', collection: @meeting.comments, locals: { meeting: @meeting }
+  #comments
+    %h3 Comments
+    = render partial: 'comments/comment', collection: @meeting.comments, locals: { meeting: @meeting }
 
-  - if policy(@comment).create?
-    = render 'meetings/comments/form', meeting: @meeting, comment: @comment
+    - if policy(@comment).create?
+      = render 'meetings/comments/form', meeting: @meeting, comment: @comment

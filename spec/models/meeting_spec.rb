@@ -43,13 +43,8 @@ describe Meeting do
 
     it "Delete an attendee" do
       meeting.add_attendee(user)
-
-      p meeting.attendees.size
-
       expect { meeting.delete_attendee(user) }.
         to change { meeting.attendees.size }.from(1).to(0)
-
-      p meeting.attendees.size
     end
   end
 end

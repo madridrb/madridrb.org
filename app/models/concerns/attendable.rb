@@ -7,10 +7,12 @@ module Attendable
 
   def add_attendee(user)
     self.attendees << user
+    save
   end
 
   def delete_attendee(user)
-    self.attendees.delete(user)
+    self.attendee_ids = self.attendee_ids.reject {|id| id == user.id }
+    save
   end
 
 end

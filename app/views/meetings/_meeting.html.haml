@@ -9,7 +9,7 @@
   .card-stats
     %ul
       %li
-        = link_to rand(200), meeting_path(meeting, anchor: :attendees)
+        = link_to meeting.attendees.count, meeting_path(meeting, anchor: :attendees)
         %span Attendees
       %li
         = link_to meeting.comments.count, meeting_path(meeting, anchor: :comments)
