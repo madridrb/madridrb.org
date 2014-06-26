@@ -5,4 +5,6 @@
     %h1= comment.user_name
     %p= comment.body
     %p.comment-detail= l comment.created_at if comment.created_at
-    %p= link_to 'Delete', meeting_comment_path(meeting, comment_counter), method: :delete
+
+    - if policy(comment).destroy?
+      %p= link_to 'Delete', meeting_comment_path(meeting, comment_counter), method: :delete

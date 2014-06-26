@@ -18,8 +18,14 @@ class Meeting < CouchRest::Model::Base
 
   before_create :set_id
 
-  def add_comment(attrs)
+  def add_comment(user, attrs)
+    attrs.merge!(user_id: user.id, user_name: user.name)
     self.comments << attrs
+    save
+  end
+
+  def delete_comment(comment)
+    self.comments.delete(comment)
     save
   end
 

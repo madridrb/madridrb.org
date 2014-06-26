@@ -7,5 +7,12 @@ FactoryGirl.define do
     starts_at { rand(10).days.from_now }
     venue { Faker::Address.street_address }
     author { build :author }
+
+    after :create do |meeting, evaluator|
+      5.times do
+        meeting.comments << attributes_for(:comment)
+      end
+      meeting.save
+    end
   end
 end

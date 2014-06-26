@@ -4,8 +4,12 @@ class CommentPolicy < ApplicationPolicy
     user.present?
   end
 
+  def destroy?
+    user.present? && user.id == record.user_id
+  end
+
   def permitted_params
-    %i{user_name body}
+    %i{body}
   end
 
   class Scope < Struct.new(:user, :scope)

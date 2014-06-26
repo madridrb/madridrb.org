@@ -32,8 +32,7 @@ feature 'Comment a meeting' do
     end
 
     scenario 'delete comment' do
-      @meeting.comments << build(:comment, body: 'This is a comment')
-      @meeting.save
+      @meeting.add_comment @user, attributes_for(:comment, body: 'This is a comment')
 
       visit '/'
       click_link 'First Madrid.rb meeting'
