@@ -1,31 +1,32 @@
-%h1= link_to @meeting.title, @meeting
-%p
-  Date:
-  = l @meeting.starts_at
+%article.type-system-sans
+  %p.type Meeting
+  %h1= link_to @meeting.title, @meeting
+  %h2= simple_format @meeting.description
+  %p.date= l @meeting.starts_at
 
-%h2 Author
-%p= link_to @meeting.author.name, @meeting.author.url
-%p
-  Twitter:
-  = @meeting.author.twitter
-%h3 Bio
-= simple_format @meeting.author.bio
+  %p.author
+    = link_to @meeting.author.name, @meeting.author.url
+    %br
+    %span Twitter:
+    = @meeting.author.twitter
+  %h3 Bio
+  = simple_format @meeting.author.bio
 
-%h2 Description
-%p= simple_format @meeting.description
+  %h3 Video
+  %p= @meeting.video_url
 
-%h2 Video
-%p= @meeting.video_url
+  %h3 Venue
+  %p= @meeting.venue
 
-%h2 Venue
-%p= @meeting.venue
+  %hr
 
+  %h3#attendees Attendees
+  = render partial: 'meetings/attendee', collection: @meeting.attendees
 
-%h2 Attendees
-= render partial: 'meetings/attendee', collection: @meeting.attendees
+  %hr
 
-%h2 Comments
-= render partial: 'comments/comment', collection: @meeting.comments, locals: { meeting: @meeting }
+  %h3#comments Comments
+  = render partial: 'comments/comment', collection: @meeting.comments, locals: { meeting: @meeting }
 
-- if policy(@comment).create?
-  = render 'meetings/comments/form', meeting: @meeting, comment: @comment
+  - if policy(@comment).create?
+    = render 'meetings/comments/form', meeting: @meeting, comment: @comment

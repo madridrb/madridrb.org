@@ -9,11 +9,8 @@
   .card-stats
     %ul
       %li
-        98
-        %span Items
+        = link_to rand(200), meeting_path(meeting, anchor: :attendees)
+        %span Attendees
       %li
-        298
-        %span Things
-      %li
-        923
-        %span Objects
+        = link_to meeting.comments.count, meeting_path(meeting, anchor: :comments)
+        %span Comments
