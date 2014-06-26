@@ -1,5 +1,6 @@
 class Meeting < CouchRest::Model::Base
   include Commentable
+  include Attendable
 
   paginates_per 12
 
@@ -10,7 +11,6 @@ class Meeting < CouchRest::Model::Base
   property :author,      Author
   property :video_url,   String
 
-  collection_of :attendees, class_name: 'User'
   timestamps!
 
   design do
@@ -18,16 +18,6 @@ class Meeting < CouchRest::Model::Base
   end
 
   before_create :set_id
-
-  def add_attendee(user)
-    self.attendees << user
-    save
-  end
-
-  def delete_attendee(user)
-    self.attendees.unshift(user)
-    save
-  end
 
   private
 
