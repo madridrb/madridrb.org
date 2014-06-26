@@ -32,7 +32,7 @@ gem 'rails-i18n'
 gem 'haml-rails'
 
 # Extend CouchRest Document class with useful features
-gem 'couchrest_model', github: 'samlown/couchrest_model'
+gem 'couchrest_model'
 gem 'kaminari'
 
 group :doc do

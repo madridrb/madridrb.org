@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/samlown/couchrest_model.git
-  revision: 34fa37ee48ce59102ee9a155acc13cf4124878f4
-  specs:
-    couchrest_model (2.0.2)
-      activemodel (>= 3.0)
-      couchrest (~> 1.1.3)
-      mime-types (>= 1.15)
-      tzinfo (>= 0.3.22)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,6 +60,11 @@ GEM
       mime-types (~> 1.15)
       multi_json (~> 1.0)
       rest-client (~> 1.6.1)
+    couchrest_model (2.0.1)
+      activemodel (>= 3.0)
+      couchrest (~> 1.1.3)
+      mime-types (>= 1.15)
+      tzinfo (>= 0.3.22)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.1.0)
@@ -211,7 +206,7 @@ DEPENDENCIES
   capybara
   capybara-email
   coffee-rails (~> 4.0.0)
-  couchrest_model!
+  couchrest_model
   factory_girl_rails
   ffaker
   haml-rails

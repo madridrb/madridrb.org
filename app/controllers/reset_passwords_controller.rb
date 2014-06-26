@@ -16,11 +16,13 @@ class ResetPasswordsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_confirmation_token!(params[:id])
+    @user = User.find_by_confirmation_token(params[:id])
+    raise CouchRest::Model::DocumentNotFound unless @user
   end
 
   def update
-    @user = User.find_by_confirmation_token!(params[:id])
+    @user = User.find_by_confirmation_token(params[:id])
+    raise CouchRest::Model::DocumentNotFound unless @user
 
     if @user.update_password(password_params)
       login @user
