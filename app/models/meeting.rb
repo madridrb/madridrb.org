@@ -1,4 +1,6 @@
 class Meeting < CouchRest::Model::Base
+  include Commentable
+
   paginates_per 12
 
   property :title,       String
@@ -7,7 +9,6 @@ class Meeting < CouchRest::Model::Base
   property :venue,       String
   property :author,      Author
   property :video_url,   String
-  property :comments,    Comment, array: true
 
   collection_of :attendees, class_name: 'User'
   timestamps!
@@ -18,19 +19,13 @@ class Meeting < CouchRest::Model::Base
 
   before_create :set_id
 
-  def add_comment(user, attrs)
-    attrs.merge!(user_id: user.id, user_name: user.name)
-    self.comments << attrs
-    save
-  end
-
-  def delete_comment(comment)
-    self.comments.delete(comment)
-    save
-  end
-
   def add_attendee(user)
     self.attendees << user
+    save
+  end
+
+  def delete_attendee(user)
+    self.attendees.unshift(user)
     save
   end
 
