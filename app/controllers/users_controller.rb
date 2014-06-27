@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.by_email.page(params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
   end

@@ -1,0 +1,6 @@
+#users
+  - @users.each do |user|
+    %div[user]
+      %p= link_to user.name, user
+
+= paginate @users

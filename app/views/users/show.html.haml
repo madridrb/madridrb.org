@@ -1,1 +1,11 @@
-%h1= @user.name
+%article.type-system-sans
+  %p.type User
+  %h1= link_to @user.name, @user
+  = simple_format @user.about
+
+  %p
+    = @user.email
+    %br
+    = @user.twitter
+    %br
+    = link_to @user.url, @user.url

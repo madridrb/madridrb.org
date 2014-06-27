@@ -1,8 +1,12 @@
 class User < CouchRest::Model::Base
   include ActiveModel::SecurePassword
 
+  paginates_per 60
+
   property :name,               String
   property :email,              String
+  property :about,              String
+  property :url,                String
   property :twitter,            String
   property :password_digest,    String
   property :confirmation_token, String
