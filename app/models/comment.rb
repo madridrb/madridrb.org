@@ -13,4 +13,8 @@ class Comment
     Time.parse(read_attribute(:created_at))
   end
 
+  def user
+    @user ||= User.find(user_id)
+  end
+
 end

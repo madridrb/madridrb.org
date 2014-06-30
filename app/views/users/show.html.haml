@@ -2,7 +2,7 @@
   %p.type User
 
   %h1
-    = gravatar_tag user, size: 50
+    = gravatar_tag user
     = link_to user.name, user
 
   - if policy(user).edit?

@@ -1,6 +1,6 @@
 .comment
   .comment-image
-    %img{:alt => "", :src => "https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png"}
+    = gravatar_tag comment.user
   .comment-content
     %h1= comment.user_name
     %p= markdown comment.body
