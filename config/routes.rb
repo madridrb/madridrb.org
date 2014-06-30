@@ -1,6 +1,6 @@
 Madridrb::Application.routes.draw do
 
-  resources :users, only: [:index, :new, :create, :show]
+  resources :users, except: [:destroy]
   resource :session, only: [:new, :create, :destroy]
   resources :reset_passwords, only: [:new, :create, :edit, :update]
   resources :meetings, only: [:index, :show] do

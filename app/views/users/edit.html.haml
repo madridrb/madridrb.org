@@ -1,0 +1,25 @@
+%h1 Edit
+
+= form_for user do |f|
+  %fieldset
+    %p
+      = f.label :name
+      = f.text_field :name, required: true
+
+    %p
+      = f.label :email
+      = f.email_field :email, required: true, placeholder: 'username@example.com'
+
+    %p
+      = f.label :url
+      = f.url_field :url, placeholder: 'http://example.com'
+
+    %p
+      = f.label :twitter
+      = f.text_field :twitter, placeholder: 'username'
+
+    %p
+      = f.label :about
+      = f.text_area :about
+
+    %p= f.submit 'Submit', class: :button
