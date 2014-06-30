@@ -1,5 +1,2 @@
-%li
-  - if attendee.twitter
-    = link_to attendee.name, attendee.twitter
-  - else
-    = attendee.name
+%li.attendee
+  = link_to gravatar_tag(attendee, html: { alt: attendee.name }), attendee, title: attendee.name
