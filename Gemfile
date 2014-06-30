@@ -58,6 +58,9 @@ gem 'neat'
 gem 'bitters'
 gem 'refills'
 
+# Markdown
+gem 'redcarpet'
+
 group :development do
   # Use Capistrano for deployment
   # gem 'capistrano', group: :development

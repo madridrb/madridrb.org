@@ -3,7 +3,7 @@
     %img{:alt => "", :src => "https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png"}
   .comment-content
     %h1= comment.user_name
-    %p= comment.body
+    %p= markdown comment.body
     %p.comment-detail= distance_of_time_in_words_to_now comment.created_at
 
     - if policy(comment).destroy?
