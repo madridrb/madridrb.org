@@ -1,0 +1,17 @@
+%h1 Edit password
+
+- if current_user.errors.any?
+  - current_user.errors.full_messages.each do |message|
+    %p= message
+
+= form_for current_user, url: users_password_path do |f|
+  %fieldset
+    %p
+      = f.label :password
+      = f.password_field :password, required: true
+
+    %p
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, required: true
+
+    %p= f.submit 'Submit', class: :button

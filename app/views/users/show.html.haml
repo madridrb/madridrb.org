@@ -6,7 +6,10 @@
     = link_to user.name, user
 
   - if policy(user).edit?
-    %p= link_to 'Edit', edit_user_path(user)
+    %p
+      = link_to 'Edit profile', edit_user_path(user)
+      |
+      = link_to 'Edit password', edit_users_password_path
 
   = simple_format user.about
 

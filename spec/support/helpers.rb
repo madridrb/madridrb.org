@@ -18,4 +18,8 @@ module Helpers
     klass.database.create!
   end
 
+  def should_be_on(path)
+    current_path == path
+  end
+
 end

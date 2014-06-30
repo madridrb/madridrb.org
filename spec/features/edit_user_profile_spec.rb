@@ -11,7 +11,7 @@ feature 'Edit user profile' do
     login_as @user
     visit user_path(@user)
     
-    click_link 'Edit'
+    click_link 'Edit profile'
     fill_in 'Name', with: 'Paquito Pérez'
     fill_in 'Email', with: 'paquito.perez@gmail.com'
     fill_in 'About', with: 'Una breve descripción'
