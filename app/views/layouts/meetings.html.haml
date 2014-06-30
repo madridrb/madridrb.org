@@ -9,7 +9,7 @@
     = csrf_meta_tags
   %body{class: [controller.controller_name, controller.action_name]}
     = render 'header'
-    = yield :hero if content_for?(:hero)
+    = render 'hero'
     #main
       = render 'flash_messages'
       = yield

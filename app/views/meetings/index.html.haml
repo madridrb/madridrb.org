@@ -1,3 +1,6 @@
+= content_for :hero do
+  = render 'hero'
+
 %section#meetings.cards
   - @meetings.each do |meeting|
     = render meeting
