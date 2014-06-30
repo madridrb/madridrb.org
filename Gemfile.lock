@@ -74,6 +74,7 @@ GEM
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     ffaker (1.24.0)
+    gravatarify (3.1.1)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -209,6 +210,7 @@ DEPENDENCIES
   couchrest_model
   factory_girl_rails
   ffaker
+  gravatarify
   haml-rails
   jbuilder
   jquery-rails

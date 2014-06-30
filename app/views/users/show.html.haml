@@ -1,11 +1,16 @@
 %article.type-system-sans
   %p.type User
-  %h1= link_to @user.name, @user
-  = simple_format @user.about
+
+  %h1
+    = gravatar_tag user, size: 50
+    = link_to user.name, user
+
+  - if policy(user).edit?
+    %p= link_to 'Edit', edit_user_path(user)
+
+  = simple_format user.about
 
   %p
-    = @user.email
+    = link_to_twitter user.twitter
     %br
-    = @user.twitter
-    %br
-    = link_to @user.url, @user.url
+    = link_to user.url, user.url
