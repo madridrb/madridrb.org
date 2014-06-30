@@ -10,7 +10,7 @@ FactoryGirl.define do
 
     after :create do |meeting, evaluator|
       5.times do
-        meeting.comments << attributes_for(:comment)
+        meeting.add_comment(FactoryGirl.create(:user), attributes_for(:comment))
       end
       meeting.save
     end

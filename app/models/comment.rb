@@ -5,7 +5,12 @@ class Comment
   property :user_id
   property :user_name
   property :body
-  timestamps!
+  property :created_at
 
-  validates_presence_of :user_name, :body
+  validates_presence_of :user_id, :user_name, :body
+
+  def created_at
+    Time.parse(read_attribute(:created_at))
+  end
+
 end

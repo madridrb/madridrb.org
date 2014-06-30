@@ -25,6 +25,7 @@ describe Meeting do
       }
 
       it { expect(comment.body).to eq("Hello") }
+      it { expect(comment.created_at).to_not be(nil) }
     end
 
     it 'remove a comment' do

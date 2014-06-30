@@ -6,7 +6,10 @@ module Commentable
   end
 
   def add_comment(user, attrs)
-    attrs.merge!(user_id: user.id, user_name: user.name)
+    attrs.merge!(
+      user_id: user.id,
+      user_name: user.name,
+      created_at: Time.current)
     self.comments << attrs
     save
   end
