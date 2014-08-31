@@ -1,4 +1,5 @@
 es:
   sessions:
     new:
-      title: Iniciar sesión
+      forgot_password: '¿Olvidate tu contraseña?'
+      submit: Inicia sesión

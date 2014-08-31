@@ -1,4 +1,5 @@
 en:
   sessions:
     new:
-      title: Log in
+      forgot_password: 'Forgot your password?'
+      submit: Sign in

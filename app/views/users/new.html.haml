@@ -1,20 +1,26 @@
-%h1 Sign up
+%fieldset.single
+  %h1= t('.title')
 
-- if @user.errors.any?
-  - @user.errors.full_messages.each do |msg|
-    %p= msg
+  - if @user.errors.any?
+    - @user.errors.full_messages.each do |msg|
+      %p= msg
 
-= form_for @user do |f|
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.label :email
-  = f.email_field :email
-  %br
-  = f.label :password
-  = f.password_field :password
-  %br
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-  %br
-  = f.submit 'Sign up'
+  = form_for @user do |f|
+    %p
+      = f.label :name
+      = f.text_field :name, require: true
+
+    %p
+      = f.label :email
+      = f.email_field :email, require: true
+
+    %p
+      = f.label :password
+      = f.password_field :password, require: true
+
+    %p
+      = f.label :password_confirmation, require: true
+      = f.password_field :password_confirmation
+
+    %p
+      = f.submit

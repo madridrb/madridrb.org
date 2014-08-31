@@ -2,3 +2,16 @@
   padding: 2em 0;
   @include outer-container;
 }
+
+fieldset.single {
+  @include span-columns(6);
+  @include shift(3);
+
+  h1 { margin-bottom: .5em }
+
+  form {
+     input[type=submit] {
+      margin-right: 1em;
+    }
+  }
+}
