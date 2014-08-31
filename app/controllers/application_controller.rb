@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Localization
   include Authentication
   include Pundit
 
@@ -9,6 +10,8 @@ class ApplicationController < ActionController::Base
   unless Rails.application.config.consider_all_requests_local
     rescue_from CouchRest::Model::DocumentNotFound, with: :render_not_found
   end
+
+  private
 
   def render_not_found
     render 'public/404', status: 404
