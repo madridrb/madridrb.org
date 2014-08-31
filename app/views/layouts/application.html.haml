@@ -5,7 +5,6 @@
     = tag :link, href: 'http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic', rel: 'stylesheet', type: 'text/css'
     = tag :link, href: 'http://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200', rel: 'stylesheet', type: 'text/css'
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body{class: [controller.controller_name, controller.action_name]}
     = render 'header'
@@ -13,3 +12,4 @@
     #main
       = render 'flash_messages'
       = yield
+    = javascript_include_tag "application", "data-turbolinks-track" => true
