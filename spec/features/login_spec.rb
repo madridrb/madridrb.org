@@ -31,7 +31,6 @@ feature 'Login' do
     visit '/'
     click_on 'log-out'
     should_see "See you soon!"
-    should_see 'Login'
   end
 
 end

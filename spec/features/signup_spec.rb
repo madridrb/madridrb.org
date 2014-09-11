@@ -17,7 +17,6 @@ feature 'Sign up' do
     click_on 'submit'
 
     should_see 'Paco Pérez'
-    should_see 'Logout'
   end
 
   scenario 'Validation error' do
