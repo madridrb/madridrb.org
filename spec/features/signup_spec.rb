@@ -8,13 +8,13 @@ feature 'Sign up' do
 
   scenario 'Happy path' do
     visit '/'
-    click_link 'Sign up'
+    click_on 'sign-up'
 
     fill_in 'Name', with: 'Paco Pérez'
     fill_in 'Email', with: 'user@sample.com'
     fill_in 'Password', with: 'Fake1234'
     fill_in 'Password confirmation', with: 'Fake1234'
-    click_button 'Sign up'
+    click_on 'submit'
 
     should_see 'Paco Pérez'
     should_see 'Logout'
@@ -22,11 +22,11 @@ feature 'Sign up' do
 
   scenario 'Validation error' do
     visit '/'
-    click_link 'Sign up'
+    click_on 'sign-up'
 
     fill_in 'Name', with: 'Paco Pérez'
     fill_in 'Email', with: 'user@sample.com'
-    click_button 'Sign up'
+    click_on 'submit'
 
     should_see 'Password no puede estar en blanco'
   end

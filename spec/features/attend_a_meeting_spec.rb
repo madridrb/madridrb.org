@@ -16,13 +16,13 @@ feature 'Attendees' do
     end
 
     scenario 'Attend a meeting' do
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
 
       within '#attendees' do
         should_not_see 'Paco Pérez'
       end
 
-      click_button 'Attend'
+      click_on 'Attend'
 
       within '#attendees' do
         should_see 'Paco Pérez'
@@ -32,13 +32,13 @@ feature 'Attendees' do
     scenario 'Unattend a meeting' do
       @meeting.add_attendee(@user)
 
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
 
       within '#attendees' do
         should_see 'Paco Pérez'
       end
 
-      click_button 'Unattend'
+      click_on 'Unattend'
 
       within '#attendees' do
         should_not_see 'Paco Pérez'

@@ -9,19 +9,19 @@ feature 'Login' do
 
   scenario 'A user login successfully' do
     visit '/'
-    click_link 'Login'
+    click_on 'log-in'
     fill_in :email, with: 'user@sample.com'
     fill_in :password, with: 'Fake1234'
-    click_button 'Login'
+    click_on 'submit'
     should_see "You're logged"
   end
 
   scenario 'A user login fails' do
     visit '/'
-    click_link 'Login'
+    click_on 'log-in'
     fill_in :email, with: 'user@sample.com'
     fill_in :password, with: 'WrongPassword'
-    click_button 'Login'
+    click_on 'submit'
     should_see 'Invalid email or password'
   end
 
@@ -29,7 +29,7 @@ feature 'Login' do
     login_as @user
 
     visit '/'
-    click_link 'Logout'
+    click_on 'log-out'
     should_see "See you soon!"
     should_see 'Login'
   end
