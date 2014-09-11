@@ -63,6 +63,13 @@ Spork.prefork do
 
     config.include Helpers
     config.include FactoryGirl::Syntax::Methods
+
+    # Show the page in failed features
+    # config.after do
+    #  if example.metadata[:type] == :feature and example.exception.present?
+    #    save_and_open_page
+    #  end
+    # end
   end
 end
 
