@@ -16,32 +16,32 @@ feature 'Attendees' do
     end
 
     scenario 'Attend a meeting' do
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
 
       within '#attendees' do
-        should_not_see 'Paco Pérez'
+        should_not_see_selector "a[title='Paco Pérez']"
       end
 
-      click_button 'Attend'
+      click_on 'attend'
 
       within '#attendees' do
-        should_see 'Paco Pérez'
+        should_see_selector "a[title='Paco Pérez']"
       end
     end
 
     scenario 'Unattend a meeting' do
       @meeting.add_attendee(@user)
 
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
 
       within '#attendees' do
-        should_see 'Paco Pérez'
+        should_see_selector "a[title='Paco Pérez']"
       end
 
-      click_button 'Unattend'
+      click_on 'unattend'
 
       within '#attendees' do
-        should_not_see 'Paco Pérez'
+        should_not_see_selector "a[title='Paco Pérez']"
       end
     end
   end

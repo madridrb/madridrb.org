@@ -10,5 +10,5 @@
       = password_field_tag :password, nil, require: true
 
     %p
-      = submit_tag t('.submit')
-      = link_to t('.forgot_password'), new_reset_password_path
+      = submit_tag t('.submit'), id: 'submit'
+      = link_to t('.forgot_password'), new_reset_password_path, id: 'forgot-password'

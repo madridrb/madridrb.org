@@ -28,10 +28,11 @@
           %input{placeholder: "Enter Search", type: "search"}/
           %button{type: "submit"}
             %img{alt: "", src: "https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png"}/
-      - unless user_signed_in?
-        = link_to 'Sign up', new_user_path, class: 'sign-up'
-        = link_to 'Login', new_session_path, class: :login
-
-      - if user_signed_in?
-        = link_to 'Logout', session_path, method: :delete, class: :login
+      - if user_logged_in?
+        = link_to 'Log out', session_path, method: :delete, id: 'log-out', class: :login
         = link_to current_user.name, current_user, class: :login
+      - else
+        = link_to 'Sign up', new_user_path, class: 'sign-up', id: 'sign-up'
+        = link_to 'Log in', new_session_path, class: :login, id: 'log-in'
+
+

@@ -27,9 +27,9 @@
   #attendees
     %h3 Attendees
     - if policy(@meeting).attend?
-      = button_to 'Attend', meeting_attendees_path(@meeting), method: :post, class: :button
+      = button_to 'Attend', meeting_attendees_path(@meeting), method: :post, class: :button, id: 'attend'
     - elsif policy(@meeting).unattend?
-      = button_to 'Unattend', meeting_attendees_path(@meeting), method: :delete, class: :button
+      = button_to 'Unattend', meeting_attendees_path(@meeting), method: :delete, class: :button, id: 'unattend'
 
     %ul
       = render partial: 'meetings/attendee', collection: @meeting.attendees

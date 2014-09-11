@@ -16,9 +16,9 @@ feature 'Comment a meeting' do
 
     scenario 'comment a meeting' do
       visit '/'
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
       fill_in 'New comment', with: 'This is a comment on a meeting'
-      click_button 'Create'
+      click_on 'Create'
 
       should_see 'Paco Pérez'
       should_see 'This is a comment on a meeting'
@@ -26,8 +26,8 @@ feature 'Comment a meeting' do
 
     scenario 'send blank comment' do
       visit '/'
-      click_link 'First Madrid.rb meeting'
-      click_button 'Create'
+      click_on 'First Madrid.rb meeting'
+      click_on 'Create'
       should_see 'Comments no es válido'
     end
 
@@ -35,9 +35,9 @@ feature 'Comment a meeting' do
       @meeting.add_comment @user, attributes_for(:comment, body: 'This is a comment')
 
       visit '/'
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
       should_see 'This is a comment'
-      click_link 'Delete'
+      click_on 'Delete'
       should_not_see 'This is a comment'
     end
   end
@@ -45,7 +45,7 @@ feature 'Comment a meeting' do
   context 'non-logged-in user' do
     scenario "Can't create new comments" do
       visit '/'
-      click_link 'First Madrid.rb meeting'
+      click_on 'First Madrid.rb meeting'
       should_not_see 'New comment'
     end
   end

@@ -8,25 +8,25 @@ feature 'Reset password' do
     @user = create :user, email: 'user@sample.com', password: 'Fake1234'
 
     visit '/session/new'
-    click_link 'Forgot your password?'
+    click_on 'forgot-password'
     fill_in :email, with: 'user@sample.com'
-    click_button 'Request'
+    click_on 'submit'
 
     open_email 'user@sample.com'
-    current_email.click_link 'Reset password'
+    current_email.click_on 'Reset password'
   end
 
   scenario 'Enter password correctly' do
     fill_in 'Password', with: 'NewPassword'
     fill_in 'Password confirmation', with: 'NewPassword'
-    click_button 'Update'
+    click_on 'Update'
     should_see "You're now logged"
   end
 
   scenario 'Enter wrong password' do
     fill_in 'Password', with: 'NewPassword'
     fill_in 'Password confirmation', with: 'WrongPassword'
-    click_button 'Update'
+    click_on 'Update'
     should_see "Reset Password"
   end
 
