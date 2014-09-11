@@ -19,13 +19,13 @@ feature 'Attendees' do
       click_on 'First Madrid.rb meeting'
 
       within '#attendees' do
-        should_not_see 'Paco Pérez'
+        should_not_see_selector "a[title='Paco Pérez']"
       end
 
       click_on 'Attend'
 
       within '#attendees' do
-        should_see 'Paco Pérez'
+        should_see_selector "a[title='Paco Pérez']"
       end
     end
 
@@ -35,13 +35,13 @@ feature 'Attendees' do
       click_on 'First Madrid.rb meeting'
 
       within '#attendees' do
-        should_see 'Paco Pérez'
+        should_see_selector "a[title='Paco Pérez']"
       end
 
       click_on 'Unattend'
 
       within '#attendees' do
-        should_not_see 'Paco Pérez'
+        should_not_see_selector "a[title='Paco Pérez']"
       end
     end
   end
