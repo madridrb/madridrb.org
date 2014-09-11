@@ -224,6 +224,7 @@ DEPENDENCIES
   rack_session_access
   rails (= 4.1.1)
   rails-i18n
+  rake
   redcarpet
   refills
   rspec-rails

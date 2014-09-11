@@ -81,4 +81,5 @@ group :test do
   gem 'launchy'
   gem 'rack_session_access'
   gem 'spork'
+  gem 'rake'
 end
