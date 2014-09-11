@@ -13,7 +13,7 @@ feature 'Reset password' do
     click_on 'submit'
 
     open_email 'user@sample.com'
-    current_email.click_link 'Reset password'
+    current_email.click_on 'Reset password'
   end
 
   scenario 'Enter password correctly' do
