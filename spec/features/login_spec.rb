@@ -7,7 +7,7 @@ feature 'Login' do
     @user = create :user, email: 'user@sample.com', password: 'Fake1234'
   end
 
-  scenario 'A user login successfully' do
+  scenario 'A user logs in successfully' do
     visit '/'
     click_on 'log-in'
     fill_in :email, with: 'user@sample.com'
